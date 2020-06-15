@@ -1,0 +1,5 @@
+* {padding: 0; margin: 0;}
+html {font-size: 20px; scroll-behavior: smooth;}
+body {font-size: 1rem; background: #777 url("/img/outlets25.png"); background-attachment: fixed; color: #444; font-family: 'Didact Gothic'; line-height: 1.4;}
+/* #innerbody {max-width: 175rem; margin: 0 auto; background: #27352a; position: relative;}
+.container {max-width: 75rem; margin: 0 auto; padding: 0 2rem;} */
