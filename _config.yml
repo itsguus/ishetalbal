@@ -1,4 +1,4 @@
-title: Dit en Det
+title: Is het al bal?
 description: 
 url: 
 
@@ -16,15 +16,3 @@ defaults:
       type: posts
     values:
       layout: "post"
-  -
-
-
-collections:
-  reviews:
-    output: false
-  products:
-    output: true
-    permalink: /webshop/:title/
-  catalogue:
-    output: true
-    permalink: /products/:title/
