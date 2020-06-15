@@ -1,5 +1,14 @@
 * {padding: 0; margin: 0;}
-html {font-size: 20px; scroll-behavior: smooth;}
-body {font-size: 1rem; background: #777 url("/img/outlets25.png"); background-attachment: fixed; color: #444; font-family: 'Didact Gothic'; line-height: 1.4;}
-/* #innerbody {max-width: 175rem; margin: 0 auto; background: #27352a; position: relative;}
-.container {max-width: 75rem; margin: 0 auto; padding: 0 2rem;} */
+html {font-size: 20px; scroll-behavior: smooth; font-family: 'Open Sans', sans-serif;} 
+body {font-size: 1rem;color: #444; font-family: 'Open Sans'; line-height: 1.4; background: #fefefe;}
+h1  {font-size: 8vw; margin: 3rem auto;}
+
+main {display: flex; width: 100%; flex-direction: column; align-items: center;}
+.timeunit {font-family: "Teko"; text-transform: uppercase;}
+main > div {display:flex; width: 25rem; justify-content: space-between; margin: 3rem auto;}
+.t > p:first-of-type {font-size: 3rem;}
+@media only screen and (max-width: 600px) {
+    .t > p:first-of-type {font-size: 2rem;}
+    main > div {width: calc(100% - 4rem); justify-content: space-around;}
+}
+.t {display:flex; flex-direction: column; align-items: center;}
