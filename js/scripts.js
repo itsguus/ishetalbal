@@ -5,7 +5,7 @@ function updateTime() {
         Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24)),
         Difference_In_Hours = Math.floor(Math.abs((date1 - date2) / 36e5 % 24)),
         Difference_In_Minutes = Math.floor(Difference_In_Time / (1000 * 60) % 60),
-        Difference_In_Seconds = Math.floor(Difference_In_Time / (1000) % 60),
+        Difference_In_Seconds = Math.ceil(Difference_In_Time / (1000) % 60),
         days = document.querySelector(".days p:first-of-type"),
         hours = document.querySelector(".hours p:first-of-type"),
         minutes = document.querySelector(".minutes p:first-of-type"),
