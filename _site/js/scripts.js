@@ -1,6 +1,10 @@
+
+var interVar,
+    geenBal = true,
+    date2 = new Date("07/04/2020, 19:00:00 GMT+02:00");
+
 function updateTime() {
-    var date2 = new Date("07/04/2020, 19:00:00 GMT+01:00"),
-        date1 = new Date(),
+    var date1 = new Date(),
         Difference_In_Time = date2.getTime() - date1.getTime(),
         Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24)),
         Difference_In_Hours = Math.floor(Math.abs((date1 - date2) / 36e5 % 24)),
@@ -10,18 +14,29 @@ function updateTime() {
         hours = document.querySelector(".hours p:first-of-type"),
         minutes = document.querySelector(".minutes p:first-of-type"),
         seconds = document.querySelector(".seconds p:first-of-type");
+    if(Difference_In_Time < 0) {
+        Difference_In_Seconds =0;
+        Difference_In_Minutes =0;
+        Difference_In_Hours =0;
+        Difference_In_Days =0;
+    }
     days.textContent = Difference_In_Days;
     hours.textContent = Difference_In_Hours;
     minutes.textContent = Difference_In_Minutes;
     seconds.textContent = Difference_In_Seconds;
+    if (Difference_In_Seconds === 0 && geenBal) {
+        startBal();
+        geenBal = false;
+        setTimeout(endBal, 28800000);
+    }
+    if (Difference_In_Days < 1) {
+        document.querySelector("main").classList.add("buttonGone");
+        document.querySelector("a").style = "display: none;";
+    }
 }
+
 updateTime();
-
 setInterval(updateTime, 1000);
-
-function hetIsBal() {
-    document.querySelector(".overlay").classList.toggle("displayNone");
-}
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -36,15 +51,23 @@ function flyNames() {
     var allNames = document.querySelectorAll(".overlay h1"),
         i;
     for (i = 0; i < allNames.length; i++) {
-        var randh = Math.ceil(Math.random() * 93 ),
-        randv = Math.ceil(Math.random() * 97 ),
-        randColor = getRandomColor(),
-        randAng = Math.ceil(Math.random() * 360 );
-
-        
-        allNames[i].style="top: " + randh + "%; left: " + randv + "%; color: " + randColor + "; transform: rotate(" + randAng +"deg);"; 
+        var randh = Math.ceil(Math.random() * 93),
+            randv = Math.ceil(Math.random() * 97),
+            randColor = getRandomColor(),
+            randAng = Math.ceil(Math.random() * 360),
+            randSize = ((Math.random() * 20) / 10).toFixed(2),
+            randShade = randSize * 2;
+        allNames[i].style = "top: " + randh + "%; left: " + randv + "%; color: " + randColor + "; transform: rotate(" + randAng + "deg); font-size:" + randSize + "rem; text-shadow: " + randShade + "px " + randShade + "px 5px rgba(0,0,0,0.5);";
     }
 }
-setInterval(flyNames, 5000)
 
-flyNames();
+function startBal() {
+    setTimeout(flyNames, 20);
+    interVar = setInterval(flyNames, 10000);
+    document.querySelector(".overlay").classList.remove("displayNone");
+}
+
+function endBal() {
+    clearInterval(interVar);
+    document.querySelector(".overlay").classList.add("displayNone");
+}
