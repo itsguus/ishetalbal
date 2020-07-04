@@ -48,7 +48,7 @@ function getRandomColor() {
 }
 
 function flyNames() {
-    var allNames = document.querySelectorAll(".overlay h1"),
+    var allNames = document.querySelectorAll(".overlay div h1"),
         i;
     for (i = 0; i < allNames.length; i++) {
         var randh = Math.ceil(Math.random() * 93),
@@ -57,13 +57,14 @@ function flyNames() {
             randAng = Math.ceil(Math.random() * 360),
             randSize = ((Math.random() * 20) / 10).toFixed(2),
             randShade = randSize * 2;
+            console.log("HI");
         allNames[i].style = "top: " + randh + "%; left: " + randv + "%; color: " + randColor + "; transform: rotate(" + randAng + "deg); font-size:" + randSize + "rem; text-shadow: " + randShade + "px " + randShade + "px 5px rgba(0,0,0,0.5);";
     }
 }
 
 function startBal() {
     setTimeout(flyNames, 20);
-    interVar = setInterval(flyNames, 10000);
+    setInterval(flyNames, 10000);
     document.querySelector(".overlay").classList.remove("displayNone");
 }
 
