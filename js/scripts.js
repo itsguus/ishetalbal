@@ -1,7 +1,7 @@
 
 var interVar,
     geenBal = true,
-    date2 = new Date("12/09/2020, 20:-6:00 GMT+02:00");
+    date2 = new Date("09/12/2020, 20:-6:00 GMT+02:00");
 
 function updateTime() {
     var date1 = new Date(),
